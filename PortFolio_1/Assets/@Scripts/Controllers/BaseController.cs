@@ -9,7 +9,7 @@ public class BaseController : MonoBehaviour
 {
     private void Awake()
     {
-        
+        Init();
     }
 
     bool _init = false; 

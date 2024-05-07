@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b20a457e6ee576c4eaee58a7844cb531
+  m_SerializeEntries:
+  - m_GUID: de52ff5c97670a149aab1a0ac7ef61dc
+    m_Address: Goblin_01_1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster
+    - PreLoad
+  - m_GUID: b0f54df90eb7f3c458e657fa05570c10
+    m_Address: Slime_01_1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster
+    - PreLoad
+  - m_GUID: a861e374365e27c41a66a65377edaab8
+    m_Address: Snake_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster
+    - PreLoad
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 1c755fbc34790ea43a65861a61959e14, type: 2}
+    - {fileID: 11400000, guid: b3708b642f6912344a7482b9ec2ff212, type: 2}

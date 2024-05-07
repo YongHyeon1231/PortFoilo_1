@@ -17,5 +17,25 @@ public class Define
         Effect,
     }
 
+    public enum ObjectType
+    {
+        Player,
+        Monster,
+        Projectile,
+        Env,
+    }
+
+    public enum CreatureState
+    {
+        Idle,
+        Moving,
+        Skill,
+        Dead,
+    }
     #endregion
+
+    public const int GOBLIN_ID = 1;
+    public const int SNAKE_ID = 2;
+    public const int SLIME_ID = 3;
+    public const int BOSS_ID = 4;
 }
