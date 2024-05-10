@@ -9,6 +9,7 @@ public class ObjectManager
     public PlayerController Player { get; private set; }
     public HashSet<PlayerController> Players { get; } = new HashSet<PlayerController>();
     public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();
+    public HashSet<GemController> Gems { get; } = new HashSet<GemController>();
     
     public T Spawn<T>(Vector3 position, int templateID = 0, string prefabName = "") where T : BaseController
     {
@@ -55,11 +56,28 @@ public class ObjectManager
 
             return mc as T;
         }
+        else if (type == typeof(GemController))
+        {
+            GameObject go = Managers.Resource.Instantiate("EXPGem.prefab", pooling: true);
+            go.transform.position = position;
+
+            GemController gc = go.GetOrAddComponent<GemController>();
+            Gems.Add(gc);
+            gc.Init();
+
+            string key = UnityEngine.Random.Range(0, 2) == 0 ? "EXPGem_01.sprite" : "EXPGem_02.sprite";
+            Sprite sprite = Managers.Resource.Load<Sprite>(key);
+            go.GetComponent<SpriteRenderer>().sprite = sprite;
+
+            GameObject.Find("@Grid").GetComponent<GridController>().Add(go);
+
+            return gc as T;
+        }
 
         return null;
     }
 
-    public void Despanw<T>(T obj) where T: BaseController
+    public void Despawn<T>(T obj) where T: BaseController
     {
         if (obj.IsValid() == false)
             return;
@@ -75,6 +93,13 @@ public class ObjectManager
             Monsters.Remove(obj as MonsterController);
             Managers.Resource.Destroy(obj.gameObject);
         }
+        else if (type == typeof(GemController))
+        {
+            Gems.Remove(obj as GemController);
+            Managers.Resource.Destroy(obj.gameObject);
+
+            GameObject.Find("@Grid").GetComponent<GridController>().Remove(obj.gameObject);
+        }
     }
 
     public void DespawnAllMonsters()
@@ -82,6 +107,6 @@ public class ObjectManager
         var monsters = Monsters.ToList();
 
         foreach ( var monster in monsters)
-            Despanw<MonsterController>(monster);
+            Despawn<MonsterController>(monster);
     }
 }

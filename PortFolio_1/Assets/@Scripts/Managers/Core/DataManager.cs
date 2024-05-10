@@ -11,12 +11,15 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    // public Dictionary<int, Data.PlayerData> PlayerDic { get; private set; } = new Dictionary<int, Data.PlayerData>();
+    public Dictionary<int, Data.PlayerData> PlayerDic { get; private set; } = new Dictionary<int, Data.PlayerData>();
+    public Dictionary<string, Data.MonsterData> MonsterDic { get; private set; } = new Dictionary<string, Data.MonsterData>();
+
 
     public void Init()
     {
-        // PlayerDic = LoadXml.<Data.PlayerDataLoader, int, Data.PlayerData > ("PlayerData.xml").MakeDict();
-        // PlayerDic = LoadJson.<Data.PlayerDataLoader, int, Data.PlayerData > ("PlayerData.json").MakeDict();
+        PlayerDic = LoadXml<Data.PlayerDataLoader, int, Data.PlayerData > ("PlayerData.xml").MakeDict();
+        // PlayerDic = LoadJson<Data.PlayerDataLoader, int, Data.PlayerData > ("PlayerData.json").MakeDict();
+        MonsterDic = LoadXml<Data.MonsterDataLoader, string, Data.MonsterData>("MonsterData.xml").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

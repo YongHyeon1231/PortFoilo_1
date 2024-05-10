@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EtcDatas>
+  <EtcData name="Goblin_01_1" prefab="Goblin_01_1" level="1" maxHp="100" attack="10" speed="3.2">
+  </EtcData>
+  <EtcData name="Snake_01" prefab="Snake_01" level="2" maxHp="200" attack="15" speed="3.2">
+  </EtcData>
+  <EtcData name="Slime_01_1" prefab="Slime_01_1" level="3" maxHp="300" attack="20" speed="3.2">
+  </EtcData>
+  <EtcData name="Slime_01_1" prefab="Slime_01_1" level="3" maxHp="300" attack="20" speed="3.2">
+  </EtcData>
+</EtcDatas>

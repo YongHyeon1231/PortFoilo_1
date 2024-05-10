@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlayerDatas>
+  <PlayerData level="1" maxHp="100" attack="10" totalExp="100">
+  </PlayerData>
+  <PlayerData level="2" maxHp="200" attack="11" totalExp="150">
+  </PlayerData>
+  <PlayerData level="3" maxHp="300" attack="12" totalExp="250">
+  </PlayerData>
+  <PlayerData level="4" maxHp="400" attack="13" totalExp="400">
+  </PlayerData>
+  <PlayerData level="5" maxHp="500" attack="14" totalExp="600">
+  </PlayerData>
+  <PlayerData level="6" maxHp="500" attack="15" totalExp="950">
+  </PlayerData>
+  <PlayerData level="7" maxHp="500" attack="16" totalExp="1350">
+  </PlayerData>
+  <PlayerData level="8" maxHp="500" attack="17" totalExp="1800">
+  </PlayerData>
+  <PlayerData level="9" maxHp="500" attack="18" totalExp="2300">
+  </PlayerData>
+  <PlayerData level="10" maxHp="600" attack="19" totalExp="2850">
+  </PlayerData>
+  <PlayerData level="11" maxHp="700" attack="20" totalExp="3450">
+  </PlayerData>
+  <PlayerData level="12" maxHp="800" attack="20" totalExp="4000">
+  </PlayerData>
+  <PlayerData level="13" maxHp="900" attack="20" totalExp="4700">
+  </PlayerData>
+  <PlayerData level="14" maxHp="1000" attack="20" totalExp="5450">
+  </PlayerData>
+  <PlayerData level="15" maxHp="1000" attack="30" totalExp="7000">
+  </PlayerData>
+</PlayerDatas>

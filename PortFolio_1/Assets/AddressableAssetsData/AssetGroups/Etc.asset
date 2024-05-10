@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Etc
+  m_EditorClassIdentifier: 
+  m_GroupName: Etc
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 76c071af6094f60499b0cdf04e00b517
+  m_SerializeEntries:
+  - m_GUID: 33c5fdd4638e5fb4d927a422923e988e
+    m_Address: Coin_Bronze.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+  - m_GUID: 36526d700c559624c87bdacdb1ad524f
+    m_Address: Coin_Gold.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+  - m_GUID: 0c80ea3aebdc99443a540109972d6adf
+    m_Address: Coin_Silver.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+  - m_GUID: 5ff1692af760ba54ebfdee128a66b7a7
+    m_Address: EXPGem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7e52f93561015ec4aa2a00e971a14964, type: 2}
+    - {fileID: 11400000, guid: 77241189b385f5847aab3de469602f0a, type: 2}

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  m_GroupName: Data
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7e262f96d3b829641b9a567c901a49ca
+  m_SerializeEntries:
+  - m_GUID: 810c5a1614631154ca67a58dcb586a4f
+    m_Address: SkillData.xml
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    - Data
+  - m_GUID: 0c556a145ff928b4190ee49c9fd3be41
+    m_Address: MonsterData.xml
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    - Data
+  - m_GUID: 30e6234dc4ce8364f85b2d64d8a38eea
+    m_Address: PlayerData.xml
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    - Data
+  - m_GUID: c5ea923969025574ead85f46166b5697
+    m_Address: EtcData.xml
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - PreLoad
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fd7a12f78444c554b927b88f0e0b080c, type: 2}
+    - {fileID: 11400000, guid: b5e4aea8cdee08b4ba320aa981d6632f, type: 2}

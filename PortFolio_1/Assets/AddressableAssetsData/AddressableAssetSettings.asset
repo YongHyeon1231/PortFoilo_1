@@ -50,6 +50,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24a4d792a460c4d4e965eb4f3d518df5, type: 2}
   - {fileID: 11400000, guid: 26d0e58dcfc040e43b72959ebb5dccca, type: 2}
   - {fileID: 11400000, guid: 62a9b5b1b9e6f9a4e9ce7ca8f6b10c2e, type: 2}
+  - {fileID: 11400000, guid: 0d86ab9bb7675e24e9a6afdd89aacb9e, type: 2}
+  - {fileID: 11400000, guid: 644df4f4fd275a54cbacdaf4073412af, type: 2}
+  - {fileID: 11400000, guid: 593926894fcb42647b009684232a304a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -98,6 +101,8 @@ MonoBehaviour:
     - Map
     - Scene
     - Effect
+    - Data
+    - Sprite
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: cb51f8bf377010b429f852f61b936aab, type: 2}

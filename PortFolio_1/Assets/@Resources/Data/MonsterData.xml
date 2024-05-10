@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MonsterDatas>
+  <MonsterData name="Goblin_01_1" prefab="Goblin_01_1" level="1" maxHp="100" attack="10" speed="3.2">
+    <DropData minCount="1">
+      <!--<DropItem type="gold" gold="100"/>-->
+      <Gold gold="100"/>
+      <Gem exp="10"/>
+      <Meat hp="30"/>
+      <!--<Skill count="2"/> -->
+    </DropData>
+  </MonsterData>
+  <MonsterData name="Snake_01" prefab="Snake_01" level="2" maxHp="200" attack="15" speed="3.2">
+    <DropData minCount="1">
+      <!--<DropItem type="gold" gold="100"/>-->
+      <Gold gold="200"/>
+      <Gem exp="20"/>
+      <Meat hp="60"/>
+      <!--<Skill count="2"/> -->
+    </DropData>
+  </MonsterData>
+  <MonsterData name="Slime_01_1" prefab="Slime_01_1" level="3" maxHp="300" attack="20" speed="3.2">
+    <DropData minCount="1">
+      <!--<DropItem type="gold" gold="100"/>-->
+      <Gold gold="300"/>
+      <Gem exp="30"/>
+      <Meat hp="90"/>
+      <!--<Skill count="2"/> -->
+    </DropData>
+  </MonsterData>
+</MonsterDatas>
