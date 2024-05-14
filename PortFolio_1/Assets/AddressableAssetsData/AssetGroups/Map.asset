@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Map
     - PreLoad
+  - m_GUID: bc3bfdd693611c44abaee948afd51533
+    m_Address: '@Map.prefab'
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    - Map
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
   m_SchemaSet:

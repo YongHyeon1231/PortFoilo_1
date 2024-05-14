@@ -10,6 +10,7 @@ public class ObjectManager
     public HashSet<PlayerController> Players { get; } = new HashSet<PlayerController>();
     public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();
     public HashSet<GemController> Gems { get; } = new HashSet<GemController>();
+    public HashSet<ProjectileController> Projectiles { get; } = new HashSet<ProjectileController>();
     
     public T Spawn<T>(Vector3 position, int templateID = 0, string prefabName = "") where T : BaseController
     {
@@ -73,6 +74,39 @@ public class ObjectManager
 
             return gc as T;
         }
+        else if (type == typeof(ProjectileController))
+        {
+            if (Managers.Data.SkillDic.TryGetValue(templateID, out Data.SkillData skilldata) == false)
+            {
+                Debug.LogError("ObjectManager Spawn Projectile Failed");
+                return null;
+            }
+            GameObject go = Managers.Resource.Instantiate(skilldata.prefab, pooling: true);
+            go.transform.position = position;
+            go.name = skilldata.name;
+
+            ProjectileController pc = go.GetOrAddComponent<ProjectileController>();
+            Projectiles.Add(pc);
+            pc.Init();
+
+            return pc as T;
+        }
+        else if(typeof(T).IsSubclassOf(typeof(SkillBase)))
+        {
+            if (Managers.Data.SkillDic.TryGetValue(templateID, out Data.SkillData skillData) == false)
+            {
+                Debug.LogError($"ObjectManager Spawn Skill Failed {templateID}");
+                return null;
+            }
+
+            GameObject go = Managers.Resource.Instantiate(skillData.prefab, pooling: false);
+            go.transform.position = position;
+
+            T t = go.GetOrAddComponent<T>();
+            t.Init();
+
+            return t;
+        }
 
         return null;
     }
@@ -99,6 +133,11 @@ public class ObjectManager
             Managers.Resource.Destroy(obj.gameObject);
 
             GameObject.Find("@Grid").GetComponent<GridController>().Remove(obj.gameObject);
+        }
+        else if (type == typeof(ProjectileController))
+        {
+            Projectiles.Remove(obj as ProjectileController);
+            Managers.Resource.Destroy(obj.gameObject);
         }
     }
 

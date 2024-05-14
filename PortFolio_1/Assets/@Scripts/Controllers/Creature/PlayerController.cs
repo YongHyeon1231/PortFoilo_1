@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class PlayerController : CreatureController
 {
+    Transform _indicator;
+    public Transform Indicator { get { return _indicator; } }
+
+    Transform _fireSocket;
+    public Vector3 FireSocket { get { return _fireSocket.position; } }
+
+    public Vector3 ShootDir { get { return (_fireSocket.position - _indicator.position).normalized; } }
+
     float EnvCollectDist { get; set; } = 1.0f;
     
     Vector2 _moveDir = Vector2.zero;
@@ -23,6 +31,9 @@ public class PlayerController : CreatureController
 
         Managers.Game.OnMoveDirChanged -= HandleOnMoveDirChanged;
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
+
+        _indicator = Utils.SearchChild<Transform>(gameObject, "Indicator");
+        _fireSocket = Utils.SearchChild<Transform>(gameObject, "FireSocket");
 
         // 데이터로 넣어주기
         _speed = 5.0f;
@@ -53,7 +64,10 @@ public class PlayerController : CreatureController
         Vector3 dir = _moveDir * _speed * Time.deltaTime;
         transform.position += dir;
 
-        //GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        if (_moveDir != Vector2.zero)
+            _indicator.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-dir.x, dir.y) * 180 / Mathf.PI);
+
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
     #endregion
 

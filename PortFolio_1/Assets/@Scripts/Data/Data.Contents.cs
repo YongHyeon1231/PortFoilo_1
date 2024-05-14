@@ -79,4 +79,62 @@ namespace Data
         }
     }
     #endregion
+
+    #region SkillData
+
+    /*[Serializable]
+    public class HitEffect
+    {
+        [XmlAttribute]
+        public string type;
+        [XmlAttribute]
+        public int templateID;
+        [XmlAttribute]
+        public int value;
+    }*/
+
+    public class SkillData
+    {
+        [XmlAttribute]
+        public int templateID;
+
+        [XmlAttribute]
+        public string name;
+
+        [XmlAttribute(AttributeName = "type")]
+        // public string SkillTypeStr;
+        public Define.SkillType SkillType = Define.SkillType.None;
+
+        [XmlAttribute]
+        public int nextID;
+        public int prevID; // TODO
+
+        [XmlAttribute]
+        public string prefab;
+
+        [XmlAttribute]
+        public int damage;
+
+        [XmlAttribute]
+        public int speed;
+
+        /*[XmlAttribute("HitEffect")]
+        public List<HitEffect> hitEffects = new List<HitEffect>();*/
+    }
+
+    [Serializable, XmlRoot("SkillDatas")]
+    public class SkillDataLoader : ILoader<int, SkillData>
+    {
+        [XmlElement("SkillData")]
+        public List<SkillData> skills = new List<SkillData>();
+
+        public Dictionary<int, SkillData> MakeDict()
+        {
+            Dictionary<int, SkillData> dict = new Dictionary<int, SkillData>();
+            foreach (SkillData skill in skills)
+                dict.Add(skill.templateID, skill);
+            return dict;
+        }
+    }
+    #endregion
 }

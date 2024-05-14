@@ -16,13 +16,30 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
     float _joystickRadius;
     Vector2 _moveDir;
 
+    bool isActive = false;
+
     void Start()
     {
         _joystickRadius = _background.gameObject.GetComponent<RectTransform>().sizeDelta.y / 2;
+
+        _background.gameObject.SetActive(false);
+        _handler.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isActive == false)
+        {
+            isActive = true;
+            _background.gameObject.SetActive(true);
+            _handler.gameObject.SetActive(true);
+        }
+            
         _background.transform.position = eventData.position;
         _handler.transform.position = eventData.position;
         _touchPoistion = eventData.position;
@@ -30,6 +47,13 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if(isActive == true)
+        {
+            isActive = false;
+            _background.gameObject.SetActive(false);
+            _handler.gameObject.SetActive(false);
+        }
+            
         _handler.transform.position = _touchPoistion;
         _moveDir = Vector2.zero;
 

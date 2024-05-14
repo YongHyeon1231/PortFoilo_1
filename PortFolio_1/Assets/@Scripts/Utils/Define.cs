@@ -32,6 +32,14 @@ public class Define
         Skill,
         Dead,
     }
+
+    public enum SkillType
+    {
+        None,
+        Melee,
+        Projectile,
+        Repeat,
+    }
     #endregion
 
     public const int GOBLIN_ID = 1;

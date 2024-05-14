@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Utils
@@ -62,5 +63,21 @@ public class Utils
         Vector2 spawnPosition = characterPosition + new Vector2(xDist, yDist);
 
         return spawnPosition;
+    }
+
+    public static T SearchChild<T>(GameObject go , string name)
+    {
+        if (go == null)
+            return default(T);
+
+        T[] myChildren = go.GetComponentsInChildren<T>();
+
+        foreach(T child in myChildren)
+        {
+            Transform tr = child as Transform;
+            if (tr.name == name)
+                return child;
+        }
+        return default(T);
     }
 }

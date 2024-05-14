@@ -76,7 +76,7 @@ public class GameScene : MonoBehaviour
         var joystick = Managers.Resource.Instantiate("UI_Joystick.prefab");
         joystick.name = "@UI_Joystick";
 
-        var map = Managers.Resource.Instantiate("Map_Tile_01.prefab");
+        var map = Managers.Resource.Instantiate("@Map.prefab");
         map.name = "@Map";
 
         Camera.main.GetComponent<CameraController>().Target = player.gameObject;
