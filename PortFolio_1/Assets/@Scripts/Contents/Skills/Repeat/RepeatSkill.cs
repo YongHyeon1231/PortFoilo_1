@@ -5,7 +5,7 @@ using static Define;
 
 public abstract class RepeatSkill : SkillBase
 {
-    public float CoolTime { get; set; } = 1.0f;
+    public float CoolTime { get; set; } = 2.0f;
     public RepeatSkill() : base(Define.SkillType.Repeat)
     {
     }
@@ -25,9 +25,8 @@ public abstract class RepeatSkill : SkillBase
         if (_coSkill != null)
         {
             StopCoroutine(_coSkill);
-
-            _coSkill = StartCoroutine(CoStartSkill());
         }
+        _coSkill = StartCoroutine(CoStartSkill());
     }
 
     protected abstract void DoSkillJob();
@@ -39,7 +38,7 @@ public abstract class RepeatSkill : SkillBase
         {
             DoSkillJob();
             
-            yield return null;
+            yield return wait;
         }
     }
     #endregion

@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballSkill : MonoBehaviour
+public class FireballSkill : RepeatSkill
 {
-    // Start is called before the first frame update
-    void Start()
+    public override bool Init()
     {
-        
+        base.Init();
+
+        if (Managers.Data.SkillDic.TryGetValue(200, out Data.SkillData skillData) == true)
+            SkillData = skillData;
+
+        Damage = SkillData.damage;
+
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public FireballSkill()
     {
-        
+
+    }
+
+    protected override void DoSkillJob()
+    {
+        if (Managers.Game.Player == null)
+            return;
+
+        Vector3 spawnPos = Managers.Game.Player.FireSocket;
+        Vector3 dir = Managers.Game.Player.ShootDir;
+
+        GenerateProjectile(200, Owner, spawnPos, dir, Vector3.zero);
     }
 }

@@ -38,6 +38,10 @@ public class PlayerController : CreatureController
         // 데이터로 넣어주기
         _speed = 5.0f;
 
+        // 나중에 UI를 통해 넣어 주기
+        Skills.AddSkill<FireballSkill>(200, transform.position);
+        Skills.AddSkill<EgoSword>(100, transform.position);
+
         return true;
     }
 

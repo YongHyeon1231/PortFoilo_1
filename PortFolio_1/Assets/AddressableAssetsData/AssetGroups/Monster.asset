@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Monster
     - PreLoad
+  - m_GUID: ada50aaaff545a945968b637defa29d5
+    m_Address: Boss_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster
+    - PreLoad
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
   m_SchemaSet:

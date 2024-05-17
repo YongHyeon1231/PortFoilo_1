@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,15 @@ public class SpawningPool : MonoBehaviour
     float _spawnInterval = 0.1f;
     int _maxMonsterCount = 100;
     Coroutine _coUpdateSpawningPool;
+    int _stageLevel = 1;
+    public int StageLevel
+    {
+        get { return _stageLevel; }
+        set
+        {
+            _stageLevel = value;
+        }
+    }
 
     public bool Stopped { get; set; } = false;
 
@@ -38,6 +48,29 @@ public class SpawningPool : MonoBehaviour
 
         // TEMP : DataID ?
         Vector2 randPos = Utils.GenerateMonsterSpawnPosition(Managers.Game.Player.transform.position, 10, 15);
-        MonsterController mc = Managers.Object.Spawn<MonsterController>(randPos, 1 + Random.Range(0, 2));
+        MonsterController mc;
+        switch (StageLevel)
+        {
+            case 1:
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20100);
+                break;
+            case 2:
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20200);
+                break;
+            case 3:
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20300);
+                break;
+            case 4:
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20000);
+                Stopped = true;
+                break;
+            case 5:
+                Stopped = false;
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20100);
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20200);
+                mc = Managers.Object.Spawn<MonsterController>(randPos, 20300);
+                break;  
+        }
+        
     }
 }

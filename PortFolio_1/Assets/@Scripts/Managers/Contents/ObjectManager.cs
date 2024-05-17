@@ -37,16 +37,21 @@ public class ObjectManager
 
             switch (templateID)
             {
-                case Define.GOBLIN_ID:
+                case 20000:
+                    name = "Boss_01";
+                    break;
+                case 20100:
                     name = "Goblin_01_1";
                     break;
-                case Define.SNAKE_ID:
+                case 20200:
                     name = "Snake_01";
                     break;
-                case Define.SLIME_ID:
+                case 20300:
                     name = "Slime_01_1";
                     break;
             };
+            if (Managers.Data.MonsterDic.TryGetValue(name, out Data.MonsterData monsterData) == false)
+                return null;
 
             GameObject go = Managers.Resource.Instantiate(name + ".prefab", pooling: true);
             go.transform.position = position;

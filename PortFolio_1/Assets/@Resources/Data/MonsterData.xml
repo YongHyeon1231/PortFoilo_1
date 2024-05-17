@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MonsterDatas>
-  <MonsterData name="Goblin_01_1" prefab="Goblin_01_1" level="1" maxHp="100" attack="10" speed="3.2">
+  <MonsterData name="Goblin_01_1" templateID ="20100" prefab="Goblin_01_1" level="1" maxHp="100" attack="10" speed="3.2">
     <DropData minCount="1">
       <!--<DropItem type="gold" gold="100"/>-->
       <Gold gold="100"/>
@@ -9,7 +9,7 @@
       <!--<Skill count="2"/> -->
     </DropData>
   </MonsterData>
-  <MonsterData name="Snake_01" prefab="Snake_01" level="2" maxHp="200" attack="15" speed="3.2">
+  <MonsterData name="Snake_01" templateID ="20200" prefab="Snake_01" level="2" maxHp="200" attack="15" speed="3.2">
     <DropData minCount="1">
       <!--<DropItem type="gold" gold="100"/>-->
       <Gold gold="200"/>
@@ -18,7 +18,7 @@
       <!--<Skill count="2"/> -->
     </DropData>
   </MonsterData>
-  <MonsterData name="Slime_01_1" prefab="Slime_01_1" level="3" maxHp="300" attack="20" speed="3.2">
+  <MonsterData name="Slime_01_1" templateID ="20300" prefab="Slime_01_1" level="3" maxHp="300" attack="20" speed="3.2">
     <DropData minCount="1">
       <!--<DropItem type="gold" gold="100"/>-->
       <Gold gold="300"/>
@@ -26,5 +26,7 @@
       <Meat hp="90"/>
       <!--<Skill count="2"/> -->
     </DropData>
+  </MonsterData>
+  <MonsterData name="Boss_01" templateID ="20000" prefab="Boss_01" level="10" maxHp="2000" attack="50" speed="5.0">
   </MonsterData>
 </MonsterDatas>

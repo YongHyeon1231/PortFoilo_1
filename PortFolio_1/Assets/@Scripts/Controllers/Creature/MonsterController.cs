@@ -21,6 +21,39 @@ public class MonsterController : CreatureController
     }
 
     protected Animator _animator;
+
+    public virtual void UpdateAnimation()
+    {
+
+    }
+
+    public override void UpdateController()
+    {
+        base.UpdateController();
+
+        switch (CreatureState)
+        {
+            case Define.CreatureState.Idle:
+                UpdateIdle();
+                break;
+            case Define.CreatureState.Moving:
+                UpdateMoving();
+                break;
+            case Define.CreatureState.Skill:
+                UpdateSkill();
+                break;
+            case Define.CreatureState.Dead:
+                UpdateDead();
+                break;
+            default:
+                break;
+        }
+    }
+
+    protected virtual void UpdateIdle() { }
+    protected virtual void UpdateSkill() { }
+    protected virtual void UpdateDead() { }
+    protected virtual void UpdateMoving() { }
     #endregion
 
     public override bool Init()
@@ -92,6 +125,7 @@ public class MonsterController : CreatureController
         base.OnDead();
 
         //킬카운트
+        Managers.Game.KillCount++;
 
         if(_coDotDamage != null)
             StopCoroutine(_coDotDamage);

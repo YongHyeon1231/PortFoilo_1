@@ -24,6 +24,21 @@ public class GameManager
     }
     #endregion
 
+    #region 전투
+    int _killCount;
+    public event Action<int> OnKillCountChanged;
+
+    public int KillCount
+    {
+        get { return _killCount; }
+        set
+        {
+            _killCount = value;
+            OnKillCountChanged?.Invoke(value);
+        }
+    }
+    #endregion
+
     #region 이동
     Vector2 _moveDir;
 

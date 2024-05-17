@@ -24,10 +24,9 @@ public class EgoSword : RepeatSkill
     {
         base.Init();
 
-        if (Managers.Data.SkillDic.TryGetValue(100, out Data.SkillData skillData) == true)
-        {
-            Damage = skillData.damage;
-        }
+        Managers.Data.SkillDic.TryGetValue(100, out Data.SkillData skillData);
+        SkillData = skillData;
+        Damage = SkillData.damage;
 
         return true;
     }
@@ -42,22 +41,18 @@ public class EgoSword : RepeatSkill
             SetParticles(SwingType.First);
             _swingParticles[(int)SwingType.First].gameObject.SetActive(true);
             yield return new WaitForSeconds(_swingParticles[(int)SwingType.First].main.duration);
-            _swingParticles[(int)SwingType.First].gameObject.SetActive(false);
 
             SetParticles(SwingType.Second);
             _swingParticles[(int)SwingType.Second].gameObject.SetActive(true);
             yield return new WaitForSeconds(_swingParticles[(int)SwingType.Second].main.duration);
-            _swingParticles[(int)SwingType.Second].gameObject.SetActive(false);
 
             SetParticles(SwingType.Third);
             _swingParticles[(int)SwingType.Third].gameObject.SetActive(true);
             yield return new WaitForSeconds(_swingParticles[(int)SwingType.Third].main.duration);
-            _swingParticles[(int)SwingType.Third].gameObject.SetActive(false);
 
             SetParticles(SwingType.Fourth);
             _swingParticles[(int)SwingType.Fourth].gameObject.SetActive(true);
             yield return new WaitForSeconds(_swingParticles[(int)SwingType.Fourth].main.duration);
-            _swingParticles[(int)SwingType.Fourth].gameObject.SetActive(false);
 
             yield return wait;
         }
