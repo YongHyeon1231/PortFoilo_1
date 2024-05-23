@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 9d3b1bfc6ecc8fa4c870f4ab9d9abc47
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 946d71fe5ef58184e97f908176055920
+    m_Address: DieEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
+    - PreLoad
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
   m_SchemaSet:

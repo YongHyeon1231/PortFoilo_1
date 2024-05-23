@@ -17,6 +17,7 @@ public class MonsterController : CreatureController
         set
         {
             _creatureState = value;
+            UpdateAnimation();
         }
     }
 
@@ -24,7 +25,19 @@ public class MonsterController : CreatureController
 
     public virtual void UpdateAnimation()
     {
-
+        switch (CreatureState)
+        {
+            case Define.CreatureState.Idle:
+                break;
+            case Define.CreatureState.Moving:
+                break;
+            case Define.CreatureState.Skill:
+                break;
+            case Define.CreatureState.Dead:
+                break;
+            default:
+                break;
+        }
     }
 
     public override void UpdateController()
@@ -123,7 +136,6 @@ public class MonsterController : CreatureController
     protected override void OnDead()
     {
         base.OnDead();
-
         //킬카운트
         Managers.Game.KillCount++;
 

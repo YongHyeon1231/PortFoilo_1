@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SkillDatas>
-	<SkillData templateID="100" name="EgoSword" type="Repeat" nextID="101" prefab="EgoSword.prefab" damage="300" speed="2" >
+	<SkillData templateID="100" name="EgoSword" type="Repeat" nextID="101" prefab="EgoSword.prefab" damage="100" speed="2" >
 	</SkillData>
-  <SkillData templateID="200" name="FireBall" type="Projectile" prefab="FireProjectile.prefab" damage="500" speed="2" >
+  <SkillData templateID="200" name="FireBall" type="Projectile" prefab="FireProjectile.prefab" damage="200" speed="7" >
 	</SkillData>
 </SkillDatas>

@@ -41,4 +41,50 @@ public class SkillBook : MonoBehaviour
 
         return null;
     }
+
+    public T AddSkill<T>(Vector3 position, Transform parent = null) where T : SkillBase
+    {
+        // Type으로 구분
+        System.Type type = typeof(T);
+
+        if (type.IsSubclassOf(typeof(SequenceSkill)))
+        {
+            var skill = gameObject.GetOrAddComponent<T>();
+            Skills.Add(skill);
+            SequenceSkills.Add(skill as SequenceSkill);
+
+            return null;
+        }
+
+        return null;
+    }
+
+    int _sequenceIndex = 0;
+    bool _stopped = false;
+
+    public void StartNextSequenceSkill()
+    {
+        if (_stopped)
+            return;
+        if (SequenceSkills.Count == 0)
+            return;
+
+        SequenceSkills[_sequenceIndex].DoSkill(OnFinishedSequenceSkill);
+    }
+
+    private void OnFinishedSequenceSkill()
+    {
+        _sequenceIndex = (_sequenceIndex + 1) % SequenceSkills.Count;
+        StartNextSequenceSkill();
+    }
+
+    public void StopSkills()
+    {
+        _stopped = true;
+
+        foreach (var skill in RepeatedSkills)
+        {
+            skill.StopAllCoroutines();
+        }
+    }
 }

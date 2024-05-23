@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UnityEngine;
 
 public class CreatureController : BaseController
 {
@@ -34,6 +34,11 @@ public class CreatureController : BaseController
         Hp -= damage;
         if (Hp <= 0)
         {
+            GameObject effect = Managers.Resource.Instantiate("DieEffect.prefab");
+            effect.transform.position = transform.position;
+            effect.GetComponent<Animator>().Play("Die");
+            GameObject.Destroy(effect, 1.0f);
+
             Hp = 0;
             OnDead();
         }

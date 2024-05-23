@@ -18,6 +18,7 @@ public class SpawningPool : MonoBehaviour
         set
         {
             _stageLevel = value;
+            Managers.UI.GetSceneUI<UI_GameScene>().SetWaveValueText(value);
         }
     }
 
@@ -61,6 +62,7 @@ public class SpawningPool : MonoBehaviour
                 mc = Managers.Object.Spawn<MonsterController>(randPos, 20300);
                 break;
             case 4:
+                //Managers.Object.DespawnAllMonsters();
                 mc = Managers.Object.Spawn<MonsterController>(randPos, 20000);
                 Stopped = true;
                 break;

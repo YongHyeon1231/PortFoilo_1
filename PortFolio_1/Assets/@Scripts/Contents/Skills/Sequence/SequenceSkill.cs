@@ -1,18 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
-public class SequenceSkill : MonoBehaviour
+public abstract class SequenceSkill : SkillBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public SequenceSkill() : base(Define.SkillType.Sequence)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void DoSkill(Action callback = null);
 }

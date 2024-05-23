@@ -12,6 +12,12 @@ public class UI_GameScene : UI_Base
     [SerializeField]
     Slider _gemSlider;
 
+    [SerializeField]
+    TMP_Text _waveValueText;
+
+    [SerializeField]
+    Button _pauseButton;
+
     public void SetGemCountRatio(float ratio)
     {
         _gemSlider.value = ratio;
@@ -20,5 +26,25 @@ public class UI_GameScene : UI_Base
     public void SetKillCount(int killCount)
     {
         _killCountText.text = $"{killCount}";
+    }
+
+    public void SetWaveValueText(int waveValueText)
+    {
+        _waveValueText.text = $"{waveValueText}";
+    }
+
+    bool _pressed = false;
+    public void SetPauseButton()
+    {
+        if (_pressed == false)
+        {
+            Time.timeScale = 0;
+            _pressed = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _pressed = false;
+        } 
     }
 }

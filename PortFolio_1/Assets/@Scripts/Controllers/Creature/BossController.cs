@@ -15,9 +15,31 @@ public class BossController : MonsterController
             Debug.Log("BossController Error");
             return true;
         }
-        Hp = boss.hp;     
+        Hp = boss.maxHp;
+        Debug.Log($"BossMonster Hp : {Hp}");
+
+        #region Sequence Skill
+        Skills.AddSkill<Move>(transform.position);
+        Skills.AddSkill<Dash>(transform.position);
+        Skills.AddSkill<Dash>(transform.position);
+        Skills.AddSkill<Dash>(transform.position);
+        Skills.StartNextSequenceSkill();
+        #endregion
 
         return true;
+    }
+
+    private void FixedUpdate()
+    {
+        if (CreatureState != Define.CreatureState.Moving)
+            return;
+        PlayerController pc = Managers.Object.Player;
+        if (pc == null)
+            return;
+
+        Vector3 dir = pc.transform.position - transform.position;
+
+        GetComponent<SpriteRenderer>().flipX = dir.x > 0;
     }
 
     public override void UpdateAnimation()
@@ -39,6 +61,37 @@ public class BossController : MonsterController
             default:
                 break;
         }
+    }
+
+    protected override void UpdateSkill()
+    {
+        base.UpdateSkill();
+
+        PlayerController pc = Managers.Game.Player;
+        if (pc == null)
+            return;
+
+        Vector3 dir = pc.gameObject.transform.position - transform.position;
+
+        if (dir.magnitude >= 3.0f)
+        {
+            Skills.StartNextSequenceSkill();
+            CreatureState = Define.CreatureState.Moving;
+        }
+    }
+
+    protected override void UpdateMoving()
+    {
+        base.UpdateMoving();
+
+        PlayerController pc = Managers.Game.Player;
+        if (pc == null)
+            return;
+
+        Vector3 dir = pc.gameObject.transform.position - transform.position;
+
+        if (dir.magnitude <= 2.0f)
+            CreatureState = Define.CreatureState.Skill;
     }
 
     protected override void UpdateDead()
@@ -69,11 +122,12 @@ public class BossController : MonsterController
     public override void OnDamaged(BaseController attacker, int damage)
     {
         base.OnDamaged(attacker, damage);
+        Debug.Log($"BossMonster Hp : {Hp}");
     }
 
     protected override void OnDead()
     {
-        base.OnDead();
+        Skills.StopSkills();
         CreatureState = Define.CreatureState.Dead;
         Wait(2.0f);
     }

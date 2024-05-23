@@ -21,19 +21,19 @@ public class GameScene : MonoBehaviour
     {
         Managers.Resource.LoadAllAsync<Object>("PreLoad", (key, count, totalCount) =>
         {
-            Debug.Log($"PreLoad {key} {count}/{totalCount}");
+            //Debug.Log($"PreLoad {key} {count}/{totalCount}");
 
             if (count == totalCount)
             {
                 Managers.Resource.LoadAllAsync<TextAsset>("Data", (key1, count1, totalCount1) =>
                 {
-                    Debug.Log($"Data {key1} {count1}/{totalCount1}");
+                    //Debug.Log($"Data {key1} {count1}/{totalCount1}");
 
                     if (count1 == totalCount1)
                     {
                         Managers.Resource.LoadAllAsync<Sprite>("Sprite", (key2, count2, totalCount2) =>
                         {
-                            Debug.Log($"Sprite {key2} {count2}/{totalCount2}");
+                            //Debug.Log($"Sprite {key2} {count2}/{totalCount2}");
 
                             if (count2 == totalCount2)
                             {
@@ -117,6 +117,7 @@ public class GameScene : MonoBehaviour
             Vector2 spawnPos = Utils.GenerateMonsterSpawnPosition(Managers.Game.Player.transform.position, 5, 10);
 
             Managers.Object.Spawn<MonsterController>(spawnPos, 20000);*/
+            //Managers.UI.ShowPopup<UI_GameResultPopup>();
         }
     }
     #endregion

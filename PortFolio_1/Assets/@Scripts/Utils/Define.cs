@@ -39,6 +39,18 @@ public class Define
         Melee,
         Projectile,
         Repeat,
+        Sequence
+    }
+
+    public enum UIEvent
+    {
+        Click,
+        Pressed,
+        PointerDown,
+        PointerUp,
+        BeginDrag,
+        Drag,
+        EndDrag,
     }
     #endregion
 

@@ -50,13 +50,20 @@ public class ObjectManager
                     name = "Slime_01_1";
                     break;
             };
-            if (Managers.Data.MonsterDic.TryGetValue(name, out Data.MonsterData monsterData) == false)
-                return null;
-
             GameObject go = Managers.Resource.Instantiate(name + ".prefab", pooling: true);
             go.transform.position = position;
 
+            if (templateID % 10000 == 0)
+            {
+                BossController bc = go.GetOrAddComponent<BossController>();
+                Monsters.Add(bc);
+                bc.Init();
+
+                return bc as T;
+            }
+            Managers.Data.MonsterDic.TryGetValue(name, out Data.MonsterData monsterData);
             MonsterController mc = go.GetOrAddComponent<MonsterController>();
+            mc.Hp = monsterData.maxHp;
             Monsters.Add(mc);
             mc.Init();
 
