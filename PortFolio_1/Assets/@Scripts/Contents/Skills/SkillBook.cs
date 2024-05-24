@@ -6,7 +6,7 @@ using UnityEngine;
 public class SkillBook : MonoBehaviour
 {
     // 일종의 스킬 매니저
-    public List<SkillBase> Skills { get; } = new List<SkillBase>();
+    public List<SkillBase> Skills { get; } = new List<SkillBase> { };
     public List<SkillBase> RepeatedSkills { get; } = new List<SkillBase>();
     // 프리팹 만들까?
     public List<SequenceSkill> SequenceSkills { get; } = new List<SequenceSkill>();
@@ -22,13 +22,13 @@ public class SkillBook : MonoBehaviour
 
                 egoSword.transform.SetParent(parent);
                 egoSword.ActivateSkill();
-
                 Skills.Add(egoSword);
                 RepeatedSkills.Add(egoSword);
 
                 return egoSword as T;
             case 200:
-                var fireball = Managers.Object.Spawn<FireballSkill>(position, templateID);
+                //var fireball = Managers.Object.Spawn<FireballSkill>(position, templateID);
+                var fireball = gameObject.GetOrAddComponent<FireballSkill>();
 
                 fireball.transform.SetParent(parent);
                 fireball.ActivateSkill();

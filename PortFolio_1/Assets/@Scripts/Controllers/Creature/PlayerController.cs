@@ -39,8 +39,8 @@ public class PlayerController : CreatureController
         _speed = 5.0f;
 
         // 나중에 UI를 통해 넣어 주기
-        Skills.AddSkill<FireballSkill>(200, transform.position);
-        Skills.AddSkill<EgoSword>(100, transform.position);
+        Skills.AddSkill<FireballSkill>(200, _fireSocket.position);
+        Skills.AddSkill<EgoSword>(100, _fireSocket.position);
 
         return true;
     }
@@ -110,5 +110,23 @@ public class PlayerController : CreatureController
         //TEMP
         /*CreatureController cc = attacker as CreatureController;
         cc?.OnDamaged(this, damage);*/
+    }
+
+    public void SkillLevelUp(int templateID, int level, string skillName)
+    {
+        int index = Skills.Skills.FindIndex(x => x.SkillData.name == skillName);
+
+        SkillBase skill = Skills.Skills[index];
+
+        if (skillName == "EgoSword")
+        {
+            skill.Damage *= 2;
+            Debug.Log($"EgoSword Damage {skill.Damage}");
+        }
+        else if (skillName == "FireBall")
+        {
+            skill.Damage *= 2;
+            Debug.Log($"FireBall Damage {skill.Damage}");
+        }
     }
 }

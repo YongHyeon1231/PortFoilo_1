@@ -18,6 +18,14 @@ public class UI_GameScene : UI_Base
     [SerializeField]
     Button _pauseButton;
 
+    [SerializeField]
+    TMP_Text _characterLevelValueText;
+
+    public void CharacterLevelValueText(string text)
+    {
+        _characterLevelValueText.text = text;
+    }
+
     public void SetGemCountRatio(float ratio)
     {
         _gemSlider.value = ratio;

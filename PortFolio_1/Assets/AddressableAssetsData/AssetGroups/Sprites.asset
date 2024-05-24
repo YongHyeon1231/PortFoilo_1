@@ -32,6 +32,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+  - m_GUID: 6488ac34197494040a8569d457c88384
+    m_Address: FireballIcon_01.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+  - m_GUID: 7db70273c1c91c244ad31566656c5caf
+    m_Address: EgoSwordIcon_01.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2c4df527566f2414894aed88a8a14e86, type: 2}
   m_SchemaSet:

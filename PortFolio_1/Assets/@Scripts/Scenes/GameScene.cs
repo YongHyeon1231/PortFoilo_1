@@ -102,6 +102,7 @@ public class GameScene : MonoBehaviour
         }
 
         Managers.UI.GetSceneUI<UI_GameScene>().SetGemCountRatio((float)_collectedGemCount / _remainingTotalGemCount);
+        Managers.UI.GetSceneUI<UI_GameScene>().CharacterLevelValueText($"{_stageLevel}");
     }
 
     public void HandleOnKillCountChanghed(int killCount)

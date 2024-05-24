@@ -8,7 +8,7 @@ public class ProjectileController : SkillBase
     CreatureController _owner;
     Vector3 _moveDir;
     float _speed = 10.0f;
-    float _lifeTime = 10.0f;
+    float _lifeTime = 5.0f;
 
     public ProjectileController() : base(Define.SkillType.None)
     {
